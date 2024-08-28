@@ -7,6 +7,8 @@ class Settings(BaseSettings):
     DB_HOST: str
     DB_PORT: int
     DB_NAME: str
+    JWT_KEY: str
+    JWT_ALGORITHM: str
 
     @property
     def DB_URL(self):
