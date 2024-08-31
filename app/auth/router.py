@@ -16,10 +16,10 @@ async def registration(data: SRegistration):
     if user:
         raise UserAlreadyExists
     hashed_password = get_password_hash(data.password)
-    await UserDAO.add(username=data.username,
+    await UserDAO.create(username=data.username,
                       tg_id=data.tg_id,
                       password=hashed_password,
-                      role='student')
+                      role='Студент')
     return user
 
 

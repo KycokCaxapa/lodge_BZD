@@ -3,8 +3,8 @@ from enum import Enum
 
 
 class Role(str, Enum):
-    student = 'студент'
-    elder = 'староста'
+    student = 'Студент'
+    elder = 'Староста'
 
 
 class SRegistration(BaseModel):

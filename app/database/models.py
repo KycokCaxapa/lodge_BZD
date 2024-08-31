@@ -18,11 +18,13 @@ class User(Base):
     role: Mapped[str]
 
 
-class Schedule(Base):
-    __tablename__ = 'schedule'
+class Subject(Base):
+    __tablename__ = 'subjects'
 
     id: Mapped[intpk]
     subject: Mapped[str]
+    group: Mapped[int]
+    day: Mapped[DateTime] = mapped_column(DateTime)
     place: Mapped[str]
     week: Mapped[str]
     teacher: Mapped[str]
@@ -32,7 +34,7 @@ class Homework(Base):
     __tablename__ = 'homeworks'
 
     id: Mapped[intpk]
-    subject: Mapped[str] = mapped_column(Integer, ForeignKey('schedule.id'))
+    subject: Mapped[int] = mapped_column(Integer, ForeignKey('subjects.id'))
     homework: Mapped[str]
     date: Mapped[DateTime] = mapped_column(DateTime)
-    author: Mapped[str] = mapped_column(Integer, ForeignKey('users.id'))
+    author: Mapped[int] = mapped_column(Integer, ForeignKey('users.id'))
